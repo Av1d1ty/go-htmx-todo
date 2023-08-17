@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <script src="https://unpkg.com/htmx.org@1.9.4" integrity="sha384-zUfuhFKKZCbHTY6aRR46gxiqszMk5tcHjsVFxnUo8VMus4kHGVdIYVbOYYNlKmHV" crossorigin="anonymous"></script>
+    <title>TODO</title>
+</head>
+<body>
+    <h1>ToDo List</h1>
+
+    <form hx-post="/add-todo" hx-target="#todo-list" hx-swap="beforeend">
+        <input type="text" name="newtodo">
+        <button type="submit">Add</button>
+    </form>
+
+    <main>
+        <ul id="todo-list">
+            {{ range .Todos }}
+                {{ block "todo-item" .}}
+                <li>{{ .Content }}
+                    <input type="checkbox" {{ if .Done }}checked{{ end }}>
+                </li>
+                {{ end }}
+            {{ end }}
+        </ul>
+    </main>
+</body>
+</html>
+
