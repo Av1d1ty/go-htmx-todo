@@ -1,3 +1,17 @@
+body {
+    min-width: 30%;
+    max-width: 70%;
+}
+
+h1 {
+    padding-top: 10%;
+    text-align: center;
+}
+
 .done {
     text-decoration: line-through;
+}
+
+.list-group input {
+    user-select: none;
 }

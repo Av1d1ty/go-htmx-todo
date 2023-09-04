@@ -1,0 +1,11 @@
+{{ define "todo-item" }}
+<li class="list-group-item {{ if .Done }}disabled{{ end }}">
+    <input class="form-check-input me-1" type="checkbox" {{ if .Done }}checked{{ end }}>
+
+    {{ .Content }}
+
+    <button class="btn btn-sm float-end">
+        <i class="fa-solid fa-trash"></i>
+    </button>
+</li>
+{{ end }}
